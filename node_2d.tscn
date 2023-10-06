@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://b787d2cyqlp8o"]
+
+[ext_resource type="Texture2D" uid="uid://luyetns7rm3p" path="res://icon.svg" id="1_tgk8e"]
+[ext_resource type="Script" path="res://NavigationRegion2D.gd" id="2_25xem"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_174go"]
+vertices = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)])
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1qk4g"]
+texture = ExtResource("1_tgk8e")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_174go")
+
+[sub_resource type="TileSet" id="TileSet_c0ppq"]
+tile_size = Vector2i(128, 128)
+navigation_layer_0/layers = 1
+sources/0 = SubResource("TileSetAtlasSource_1qk4g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdtar"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3t0sw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_c0ppq")
+navigation_visibility_mode = 2
+format = 2
+layer_0/tile_data = PackedInt32Array(1, 0, 0, 2, 0, 0, 3, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 65544, 0, 0, 196616, 0, 0, 262152, 0, 0, 262151, 0, 0, 262150, 0, 0, 262149, 0, 0, 262147, 0, 0, 262146, 0, 0, 262145, 0, 0, 262144, 0, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 65538, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 65539, 0, 0, 196613, 0, 0, 65541, 0, 0, 65542, 0, 0, 196614, 0, 0, 196615, 0, 0, 65543, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TileMap"]
+position = Vector2(391, 101)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
+shape = SubResource("RectangleShape2D_bdtar")
+
+[node name="Area2D" type="Area2D" parent="TileMap/StaticBody2D" groups=["NavigationArea"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/StaticBody2D/Area2D"]
+polygon = PackedVector2Array(1, -55, -63, -21, -34, 43, 37, 39, 50, -15)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="TileMap"]
+position = Vector2(391, 244)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_bdtar")
+
+[node name="Area2D" type="Area2D" parent="TileMap/StaticBody2D2" groups=["NavigationArea"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/StaticBody2D2/Area2D"]
+polygon = PackedVector2Array(1, -55, -63, -21, -34, 43, 37, 39, 50, -15)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." node_paths=PackedStringArray("tileMap")]
+navigation_polygon = SubResource("NavigationPolygon_3t0sw")
+script = ExtResource("2_25xem")
+tileMap = NodePath("../TileMap")
