@@ -11,6 +11,7 @@ func spawn_navigation_mesh():
 	var allMergePolygon: Array[PackedVector2Array] = []
 	var polygon: NavigationPolygon = get_navigation_polygon()
 	var allTile: Array = tileMap.get_used_cells(0)
+	allTile.sort_custom(func(a, b): return a[0] < b[0])
 	for tile in allTile:
 		var tileRegion: Vector2 = tileMap.map_to_local(tile)
 		var tileTransform: Transform2D = Transform2D(Vector2(1,0), Vector2(0,1), -tileRegion)
@@ -24,10 +25,10 @@ func spawn_navigation_mesh():
 				break
 			navigationMesh.clear()
 			navigationMesh.append_array(allMergePolygon)
+	print(navigationMesh)
 	polygon.clear_outlines()
 	for navigation in navigationMesh:
 		polygon.add_outline(navigation)
-	pass
 	
 func refresh_navigation_mesh():
 	var allPolygonOutline: Array[PackedVector2Array] = []

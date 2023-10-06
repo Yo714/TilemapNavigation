@@ -29,10 +29,10 @@ sources/0 = SubResource("TileSetAtlasSource_1qk4g")
 tile_set = SubResource("TileSet_c0ppq")
 navigation_visibility_mode = 2
 format = 2
-layer_0/tile_data = PackedInt32Array(1, 0, 0, 2, 0, 0, 3, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 65544, 0, 0, 196616, 0, 0, 262152, 0, 0, 262151, 0, 0, 262150, 0, 0, 262149, 0, 0, 262147, 0, 0, 262146, 0, 0, 262145, 0, 0, 262144, 0, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 65538, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 65539, 0, 0, 196613, 0, 0, 65541, 0, 0, 65542, 0, 0, 196614, 0, 0, 196615, 0, 0, 65543, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0)
+layer_0/tile_data = PackedInt32Array(1, 0, 0, 2, 0, 0, 3, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 65544, 0, 0, 196616, 0, 0, 262152, 0, 0, 262151, 0, 0, 262150, 0, 0, 262149, 0, 0, 262147, 0, 0, 262146, 0, 0, 262145, 0, 0, 262144, 0, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 65538, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 196610, 0, 0, 65542, 0, 0, 196614, 0, 0, 196615, 0, 0, 65543, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 0, 0, 0, 131074, 0, 0, 4, 0, 0, 131076, 0, 0, 262148, 0, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TileMap"]
-position = Vector2(391, 101)
+position = Vector2(872, 403)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
 shape = SubResource("RectangleShape2D_bdtar")
@@ -43,7 +43,7 @@ shape = SubResource("RectangleShape2D_bdtar")
 polygon = PackedVector2Array(1, -55, -63, -21, -34, 43, 37, 39, 50, -15)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="TileMap"]
-position = Vector2(391, 244)
+position = Vector2(296, 165)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/StaticBody2D2"]
 shape = SubResource("RectangleShape2D_bdtar")
